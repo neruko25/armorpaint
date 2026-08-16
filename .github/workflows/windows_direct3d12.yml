@@ -20,8 +20,13 @@ jobs:
           ../base/make --compile
 
       - name: List build output (debug)
+        shell: pwsh
         run: |
-          dir /s paint\build
+          if (Test-Path paint\build) {
+            Get-ChildItem -Recurse paint\build
+          } else {
+            Write-Host "paint\build フォルダが存在しません。"
+          }
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
