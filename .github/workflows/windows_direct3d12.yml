@@ -1,6 +1,7 @@
 name: Windows (Direct3D12)
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - main
